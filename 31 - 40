@@ -1,0 +1,403 @@
+const prompt = require ('prompt-sync')();
+
+
+/*
+31. Escreva um algoritmo que leia um número inteiro A e uma matriz V 30 x 30 de inteiros.
+Conte quantos valores iguais a A estão na matriz. Crie, a seguir, uma matriz X contendo
+todos os elementos de V diferentes de A. Mostre os resultados.
+
+function numeros_random(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+let tamanho = 30
+let matriz_v = Array(tamanho)
+let matriz_x = Array(tamanho)
+let a = parseInt(prompt('Qual é o valor que você deseja procurar? '))
+let qtd_a=0
+for (let i = 0; i < tamanho; i++) {
+    matriz_v[i] = Array(tamanho)
+    for (let j = 0; j < tamanho; j++) {
+        matriz_v[i][j] = numeros_random(0, 512);
+        if (a === matriz_v[i][j])
+            qtd_a++
+    }
+}
+console.log (`O Número ${a} aparece ${qtd_a} vezes`)
+for (let i = 0; i < tamanho; i++) {
+    matriz_x[i] = Array(tamanho)
+    for (let j = 0; j < tamanho; j++) {
+        if (matriz_v[i][j] === a)
+            matriz_x[i][j] = 0
+        else    
+            matriz_x[i][j] = matriz_v[i][j]
+    }
+}
+
+console.log("Matriz V:")
+for (let i = 0; i < tamanho; i++) {
+    console.log(matriz_v[i].join(' '))
+}
+console.log("Matriz X:")
+for (let i = 0; i < tamanho; i++) {
+    console.log(matriz_x[i].join(' '))
+}
+*/
+
+
+/*
+32. Escrever um algoritmo que lê uma matriz M(12,13) e divida todos os 13 elementos de
+cada uma das 12 linhas de M pelo maior elemento em módulo daquela linha. Escrever a
+matriz lida e a modificada.
+
+
+function numeros_random(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+let tamanho_i = 4, tamanho_j = 5;
+let matriz = Array (tamanho_i)
+let maiores_numeros = Array(tamanho_i).fill(0);
+for (let i = 0; i < tamanho_i; i++) {
+    matriz[i] = Array (tamanho_j)
+    for (let j = 0; j < tamanho_j; j++) {
+        matriz[i][j] = numeros_random(-8, 8);
+        let absValue = Math.abs(matriz[i][j]);
+        if (absValue > Math.abs(maiores_numeros[i])) {
+            maiores_numeros[i] = absValue;
+        }
+    }
+}
+console.log("Matriz original:");
+for (let i = 0; i < tamanho_i; i++) {
+    console.log(matriz[i].join(' '));
+}
+for (let i = 0; i < tamanho_i; i++) {
+    for (let j = 0; j < tamanho_j; j++) {
+        matriz[i][j] /= maiores_numeros[i];
+    }
+}
+console.log('Maiores valores em módulo de cada linha:');
+console.log(maiores_numeros.join(' '));
+console.log("Matriz modificada:");
+for (let i = 0; i < tamanho_i; i++) {
+    console.log(matriz[i].join(' '));
+}
+*/
+
+
+
+/*33. Faça um algoritmo que leia uma matriz 3 x 3 e após a leitura, multiplique os
+elementos da diagonal principal com a média dos elementos da diagonal secundária.
+
+function numeros_random(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+let tamanho = 3
+let matriz = Array (tamanho)
+let media=0
+for (let i = 0; i < tamanho; i++) {
+    matriz[i] = Array (tamanho)
+    for (let j = 0; j < tamanho; j++) {
+        matriz[i][j] = numeros_random(0, 16)
+        if (i + j === tamanho - 1)
+            media += matriz[i][j] 
+    }
+}
+console.log("Matriz original:");
+for (let i = 0; i < tamanho; i++) {
+    console.log(matriz[i].join(' '))
+}
+media /= tamanho
+console.log (`A média é ${media}`)
+for (let i = 0; i < tamanho; i++) {
+    matriz[i][i] *= media
+}
+console.log("Matriz modificada:");
+for (let i = 0; i < tamanho; i++) {
+    console.log(matriz[i].join(' '))
+}
+*/
+
+/*
+34. Faça um algoritmo que leia uma matriz 50 x 50 de números reais. A seguir, multiplique
+cada linha pelo elemento da diagonal principal daquela linha. Mostre a matriz após as
+multiplicações.
+
+function numeros_random(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+let tamanho = 50
+let matriz = Array (tamanho)
+let multiplicador
+for (let i = 0; i < tamanho; i++) {
+    matriz[i] = Array (tamanho)
+    for (let j = 0; j < tamanho; j++) {
+        matriz[i][j] = numeros_random(0, 16)
+    }
+}
+console.log("Matriz original:");
+for (let i = 0; i < tamanho; i++) {
+    console.log(matriz[i].join(' '))
+}
+for (let i = 0; i < tamanho; i++) {
+    multiplicador=matriz[i][i]
+    for (let j = 0; j < tamanho; j++) {
+        matriz[i][j] *= multiplicador
+    }
+}
+console.log("Matriz modificada:");
+for (let i = 0; i < tamanho; i++) {
+    console.log(matriz[i].join(' '))
+}
+*/
+
+/*
+35. Elaborar um algoritmo que leia um conjunto de 30 valores e os coloca em 2 vetores
+conforme forem pares ou ímpares. O tamanho do vetor é de 5 posições. Se algum vetor
+estiver cheio, escrevê-lo. Terminada a leitura, escrever o conteúdo dos dois vetores. Cada
+vetor pode ser preenchido quantas vezes forem necessárias.
+
+
+let vetor_par = []
+let vetor_impar = []
+let conjunto = Array (15)
+let qtd_par = 0, qtd_impar = 0
+for (i = 0; i < conjunto.length; i ++){
+    conjunto[i] = parseInt(prompt('Digite um valor '))
+    if (conjunto[i] % 2 === 0){
+        vetor_par.push(conjunto[i])
+        qtd_par++
+        if (qtd_par === 5) {
+            console.log('Buffer do vetor de pares cheio.')
+            console.log(vetor_par.join(' '))
+            vetor_par = []
+            qtd_par = 0
+        }
+    } else {
+        vetor_impar.push(conjunto[i])
+        qtd_impar++
+        if (qtd_impar === 5) {
+            console.log('Buffer do vetor de ímpares cheio.')
+            console.log(vetor_impar.join(' '))
+            vetor_impar = []
+            qtd_impar = 0
+        }
+    }
+}
+if (vetor_par.length > 0) {
+    console.log('Vetor de pares restante:')
+    console.log(vetor_par.join(' '))
+}
+if (vetor_impar.length > 0) {
+    console.log('Vetor de ímpares restante:')
+    console.log(vetor_impar.join(' '))
+}
+*/
+
+
+/*
+36. Escreva um algoritmo que leia um vetor de 13 elementos inteiros, que é o Gabarito de
+um teste da loteria esportiva. Leia, a seguir, para cada um dos 100 apostadores, o número
+do seu cartão e um vetor de Respostas de 13 posições. Verifique para cada apostador o
+número de acertos, comparando o vetor de Gabarito com o vetor de Respostas. Escreva
+o número do apostador e o número de acertos. Se o apostador tiver 13 acertos, mostrar a
+mensagem "Parabéns, tu foi o GANHADOR".
+
+function numeros_random(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+let tamanho_i = 13, tamanho_j=100
+let Gabarito = Array (tamanho_i)
+let Jogadores = Array (tamanho_j)
+let acertos = Array (tamanho_j).fill(0)
+for (let i = 0; i < tamanho_i; i++) {
+    Gabarito[i] = numeros_random(0, 2) 
+    //como é uma aposta esportiva pode ter 3 resultados, com 729 quer dizer que houveram 5 jogos
+    Jogadores[i] = Array (tamanho_j)
+    for (let j = 0; j < tamanho_j; j++) {
+        Jogadores[i][j] = numeros_random(0, 2)
+        if (Gabarito[i] === Jogadores[i][j])
+            acertos[j]++
+    }
+}
+
+for (let j = 0; j < tamanho_j; j++) {
+    if (acertos[j]<13)
+        console.log ('O jogador ', j+1,` teve ${acertos[j]} acertos`)
+    else
+        console.log ('Parabéns Jogador ', j+1 ,' tu foi o GANHADOR')
+}
+*/
+
+
+/*
+Escreva um algoritmo que leia um vetor G de 20 elementos caractere que representa
+o gabarito de uma prova. A seguir, para cada um dos 50 alunos da turma, leia o vetor de
+respostas (R) do aluno e conte o número de acertos. Mostre o número de acertos do
+aluno e uma mensagem “APROVADO” se a quantidade de acertos for maior ou igual a 12;
+e mostre uma mensagem de “REPROVADO”, caso contrário.
+
+function numeros_random(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function converterParaLetra(numero) {
+    switch (numero) {
+        case 0: return "A"
+        case 1: return "B"
+        case 2: return "C"
+        case 3: return "D"
+        case 4: return "E"
+    }
+}
+let respostas = 20
+let num_alunos = 50
+let Gabarito = Array(respostas)
+let Alunos = Array(num_alunos)
+let acertos = Array(num_alunos).fill(0)
+for (let i = 0; i < respostas; i++) {
+    Gabarito[i] = converterParaLetra(numeros_random(0, 4))
+    Alunos[i] = Array(num_alunos)
+    for (let j = 0; j < num_alunos; j++) {
+        Alunos[i][j] = converterParaLetra(numeros_random(0, 4))
+        if (Gabarito[i] === Alunos[i][j]) {
+            acertos[j]++
+        }
+    }
+}
+
+for (let i = 0; i < num_alunos; i++) {
+    if (acertos[i] >= 12) 
+        situacao = "APROVADO(A)" 
+    else
+        situacao = "REPROVADO(A)"
+    console.log(`O aluno(a) ${i + 1} teve ${acertos[i]} acertos e foi ${situacao}`)
+}
+*/
+
+
+/*Elabore um algoritmo que leia um vetor de 6 posições e após sua leitura leia outra
+variável identificadora que calcule a operação conforme a informação contida nesta
+variável:
+1- soma dos elementos;
+2- produto dos elementos;
+3- média dos elementos;
+4- ordene os elementos em ordem crescente;
+5- mostre o vetor.
+
+
+let tamanho = 6;
+let vetor = Array(tamanho);
+let soma = 0, produto = 1, media = 0;
+for (let i = 0; i < tamanho; i++) {
+    vetor[i] = parseInt(prompt(`Digite um valor para a posição ${i + 1}:`))
+}
+for (let i = 0; i < tamanho; i++) {
+    soma += vetor[i]
+    produto *= vetor[i]
+}
+media = soma / tamanho
+console.log('O vetor é:')
+console.log(vetor.join(' '))
+for (let n = tamanho; n > 1; n--) {
+    for (let i = 0; i < n - 1; i++) {
+        if (vetor[i] > vetor[i + 1]) {
+            let auxiliar = vetor[i]
+            vetor[i] = vetor[i + 1]
+            vetor[i + 1] = auxiliar
+       }
+    }
+}
+console.log(`A soma é: ${soma}`)
+console.log(`O produto é: ${produto}`)
+console.log(`A média é: ${media}`)
+console.log('O vetor ordenado é:')
+console.log(vetor.join(' '))
+*/
+
+
+/*
+39. Faça um algoritmo que leia um vetor (A) de 100 posições. Em seguida, compacte o
+vetor, retirando os valores nulos e negativos. Coloque o resultado no vetor B.
+
+function numeros_random(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+let tamanho = 100
+let vetor_a = Array (tamanho)
+let vetor_b = []
+for (let i = 0; i < tamanho; i++) {
+    vetor_a[i] = numeros_random(-128, 127)
+}
+console.log(vetor_a.join(' '))
+for (let i = 0; i < tamanho; i++) {
+    if (vetor_a[i] > 0)
+        vetor_b.push(vetor_a[i])
+}
+console.log(vetor_b.join(' '))
+*/
+
+/*
+40. Faça um algoritmo que leia um vetor de 5 elementos inteiros, correspondentes ao
+resultado oficial da Loto. A seguir, leia 50 conjuntos de vetores (com 5 elementos inteiros
+cada), representando as apostas feitas. Compare os números das apostas com o
+resultado oficial e mostre uma mensagem ("Ganhador") se todos os números
+corresponderem ao resultado oficial. (Observação: não é necessário procurar por ternos
+e quadras, apenas por quinas.)
+    
+
+function numeros_random(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+let qtd_participantes = 50, num_aposta = 5
+let participantes = Array (qtd_participantes)
+let resultado = Array (num_aposta)
+let acertos = 0, ganhadores = 0
+for (let j = 0; j < qtd_participantes; j++) {
+    participantes[j] = Array(num_aposta)
+    for (let i = 0; i < num_aposta; i++) {
+        participantes[j][i] = numeros_random(1, 60)
+    }
+}
+for (let i = 0; i < num_aposta; i++) {
+    do{
+        resultado[i] = parseInt(prompt(`Qual é o ${i + 1}º número oficial? `))
+        if (resultado[i]<1 || resultado[i]>60)
+            console.log ('Digite algum numero entre 1 e 60')
+    }while (resultado[i]<1 || resultado[i]>60)
+}
+for (let j = 0; j < qtd_participantes; j ++){
+    for (let i = 0; i < 5; i ++){
+        for (let k = 0; k < 5; k ++)
+            {
+                if (participantes[i][j] === resultado[k])
+                    acertos++
+            }
+    }
+    if (acertos === 5){
+        console.log(`Parabéns Jogador ${j+1}, VOCÊ GANHOU NA LOTERIA`)
+        ganhadores++
+    }
+}
+if (ganhadores===0)
+    console.log('Não houve ganhadores')
+*/
