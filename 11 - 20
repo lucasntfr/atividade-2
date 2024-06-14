@@ -1,0 +1,286 @@
+const prompt = require ('prompt-sync')();
+
+/*
+11. Desenvolva um programa que leia o primeiro termo e a razão de uma PA (Progressão
+Aritmética), mostrando na tela os 10 primeiros elementos da PA e a soma entre todos os
+valores da sequência.
+
+
+let termos = Array(10)
+termos[0] = parseFloat(prompt("Qual é o valor do primeiro termo? "))
+let razao = parseFloat(prompt("Qual é a razão da PA? "))
+let soma = termos[0]
+let i
+for (i=1; i<10; i++){
+    termos[i] = termos[i-1]*razao
+    soma +=termos[i]
+}
+for (i=0; i<10; i++){
+    console.log(termos[i])
+}
+console.log("O valor total da PA é ", soma.toFixed(2))
+*/
+
+
+/*
+12. Faça um programa que mostre os 10 primeiros elementos da Sequência de Fibonacci.
+Ex.: 1, 1, 2, 3, 5, 8, 13, 21.
+
+
+let x=0
+let y=1
+let auxiliar
+for (let i=0; i<10; i++){
+    if (y>x){
+        console.log (y)
+        x = y
+    }else{
+        console.log (x)
+        auxiliar = x
+        x += y
+        y= auxiliar
+    }
+}
+*/
+
+
+/*
+13. Crie um programa que preencha automaticamente (usando lógica, não apenas
+atribuindo diretamente) um vetor numérico com 15 posições com os primeiros elementos
+da sequência de Fibonacci.
+
+
+
+let sequencia = Array (15)
+sequencia[0] = 1
+sequencia[1] = 1
+for (let i=2; i<15; i++){
+    sequencia[i] = sequencia[i-1] + sequencia[i-2]
+}
+for (let numero of sequencia) {
+    console.log(numero);
+}
+*/
+
+
+
+/*
+14. Faça um programa que leia 7 nomes de pessoas e guarde-os em um vetor. No final,
+mostre uma listagem com todos os nomes informados, na ordem inversa daquela em
+que eles foram informados.
+
+
+let Nomes = Array(7)
+let i
+for (i = 0; i < 7; i++) {
+    Nomes[i] = prompt("Digite o " + (i + 1) + "º nome: ")
+}
+for (i = 6; i >= 0; i--) {
+    console.log(Nomes[i])
+}
+*/
+
+
+/*15. Desenvolva um programa que leia 10 números inteiros e guarde-os em um vetor. No
+final, mostre quais são os números pares que foram digitados e em que posições eles
+estão armazenados.
+
+
+let Numeros = Array(10)
+let i
+for (i = 0; i < 10; i++) {
+    Numeros[i] = prompt("Digite o " + (i + 1) + "º número: ")
+}
+for (i = 0; i < 10; i++) {
+    if(Numeros[i]%2==0){
+       console.log(`O número ${Numeros[i]} é par e está na posição `, i)
+    }
+}
+*/
+
+/*
+16. Crie uma lógica que preencha um vetor de 20 posições com números aleatórios
+(entre 0 e 99) gerados pelo computador. Logo em seguida, mostre os números gerados e
+depois coloque o vetor em ordem crescente, mostrando no final os valores ordenados.
+
+
+
+function Numero_random(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function Ordena(tamanho, array) {
+    if (tamanho == 1) {
+        return
+    }
+    for (let i = 1; i < tamanho; i++) {
+        if (array[i - 1] > array[i]) {
+            let auxiliar = array[i - 1]
+            array[i - 1] = array[i]
+            array[i] = auxiliar
+        }
+    }
+    Ordena(tamanho - 1, array)
+}
+
+let vetor = Array(20)
+let i
+for (i = 0; i < 20; i++) {
+    vetor[i] = Numero_random(0, 100)
+}
+console.log ("vetor Original: ")
+for (i = 0; i < 20; i++) {
+    console.log (vetor[i])
+}
+Ordena(vetor.length, vetor);
+console.log ("vetor ordenado: ")
+for (i = 0; i < 20; i++) {
+    console.log (vetor[i])
+}
+*/
+
+/*
+17. Crie um programa que leia o nome e a idade de 9 pessoas e guarde esses valores em
+dois vetores, em posições relacionadas. No final, mostre uma listagem contendo apenas
+os dados das pessoas menores de idade.
+
+let Nomes = Array(9)
+let Idade = Array(9)
+let i
+for (i = 0; i < 9; i++) {
+    Nomes[i] = prompt("Digite o " + (i + 1) + "º nome: ")
+    Idade[i] = prompt(`Digite a idade do(a) ${Nomes[i]}: `)
+}
+for (i = 0; i < 9; i++) {
+    if (Idade[i]<18){
+        console.log (`O(A) ${Nomes[i]} tem ${Idade[i]} anos`)
+    }
+}
+*/
+
+
+/*
+18. Crie um registro com o nome do funcionário, cargo e salário. Leia este registro para
+um funcionário e ao final escreva o conteúdo do registro.
+
+let registro = {};
+repetição. Escrever cada um deles no formato HH.MM.SS.
+registro.nome = prompt("Qual é o seu nome? ")
+registro.cargo = prompt("Qual é o seu cargo? ")
+registro.salario = parseFloat(prompt("Qual é o seu salário? "))
+console.log(`O(A) ${registro.nome} ocupa o cargo de ${registro.cargo} e recebe R$${registro.salario.toFixed(2)}`)
+*/
+
+
+/*
+19. Escrever um programa para ler 5 horários. Validar cada horário fornecendo através de
+repetição. Escrever cada um deles no formato HH.MM.SS.
+
+
+function validacao(valor, min, max) {
+    return (valor>=min && valor<=max)
+}
+let valido, horas, minutos, segundos
+let horarios = Array(5);
+for (let i = 0; i < 5; i++) {
+    do {
+        horas = parseInt(prompt("Quais são as horas? "));
+        valido = validacao(horas, 0, 24)
+        if (!valido) {
+            console.log("Horas inválidas");
+        }
+    } while (!valido);
+    
+    do {
+        minutos = parseInt(prompt("Quais são os minutos? "));
+        valido = validacao(minutos, 0, 60)
+        if (!valido) {
+            console.log("Minutos inválidos");
+        }
+    } while (!valido);
+    
+    do {
+        segundos = parseInt(prompt("Quais são os segundos? "));
+        valido = validacao(segundos, 0, 60)
+        if (!valido) {
+            console.log("Segundos inválidos");
+        }
+    } while (!valido);
+    horarios[i] = {horas , minutos, segundos}
+}
+for (let i = 0; i < 5; i++) {
+    console.log(`${(horarios[i].horas)}.${(horarios[i].minutos)}.${(horarios[i].segundos)}`);
+}
+*/
+
+/*
+Uma indústria faz a folha mensal de pagamentos de seus 80 empregados baseada
+no seguinte: existe uma tabela com os dados de cada funcionalidade: matrícula, nome e
+salário bruto. Escreva um programa que leia e processe a tabela e emita (escreva na
+tela), cada funcionário, seu contracheque, cujo formato é dado a seguir:
+Matrícula:
+Nome:
+Salário bruto:
+Dedução INSS:
+Salário líquido:
+(Dicas: desconto de 12%, salário líquido é a diferença entre salário bruto e a redução do
+INSS).
+
+
+function valida_matricula(valor) {
+    return valor >= 0
+}
+
+function valida_nome(nome) {
+    return nome.length >= 3
+}
+
+function valida_salario_b(valor) {
+    return valor >= 1000
+}
+
+function valor_inss(salario_b) {
+    return salario_b * 0.12
+}
+
+let valido, matricula, nome, salario_b, inss, salario_l;
+let funcionarios = Array(5)
+
+for (let i = 0; i < funcionarios.length; i++) {
+    do {
+        matricula = parseInt(prompt("Qual é a matrícula do(a) funcionário(a)? "))
+        valido = valida_matricula(matricula)
+        if (!valido) {
+            console.log("Matrícula inválida")
+        }
+    } while (!valido)
+
+    do {
+        nome = prompt("Qual é o nome do(a) funcionário(a)? ")
+        valido = valida_nome(nome)
+        if (!valido) {
+            console.log("Nome muito curto")
+        }
+    } while (!valido)
+
+    do {
+        salario_b = parseFloat(prompt("Qual é o salário bruto do(a) funcionário(a)? "))
+        valido = valida_salario_b(salario_b)
+        if (!valido) {
+            console.log("Salário abaixo do mínimo")
+        }
+    } while (!valido)
+
+    inss = valor_inss(salario_b)
+    salario_l = salario_b - inss
+    funcionarios[i] = { matricula, nome, salario_b, inss, salario_l }
+}
+
+for (let i = 0; i < funcionarios.length; i++) {
+    console.log(`Matrícula: ${funcionarios[i].matricula}`)
+    console.log(`Nome: ${funcionarios[i].nome}`)
+    console.log(`Salário bruto: ${funcionarios[i].salario_b}`)
+    console.log(`INSS: ${funcionarios[i].inss}`)
+    console.log(`Salário líquido: ${funcionarios[i].salario_l}`)
+}
+*/
